@@ -3,874 +3,702 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>RecoveryPass</title>
+  <meta name="description" content="RecoveryPass — 3× per maand herstel. Heat • Cold • Lounge. Amsterdam pilot." />
+  <meta name="theme-color" content="#ff3b78" />
 
-  <!--
-    Snelle edits:
-    1) Vervang de 4 image-urls in de CSS variabelen (—img-hero, —img-split, —img-g1, —img-g2) door je eigen beelden
-    2) Vervang hello@yourdomain.com door je echte email
-    3) Koppel CTA’s aan je signup/checkout (Stripe, Typeform, Memberstack, etc.)
-  -->
-
-  <title>RecoveryPass — Recovery Membership</title>
-  <meta name="description" content="Je sport al genoeg. RecoveryPass regelt je herstel: sauna, cold plunge en recovery lounge — als vaste routine." />
-  <meta name="theme-color" content="#0b0c10" />
-
-  <!-- Favicon (inline) -->
-  <link rel="icon" href='data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="64" height="64"%3E%3Cdefs%3E%3ClinearGradient id="g" x1="0" y1="0" x2="1" y2="1"%3E%3Cstop offset="0" stop-color="%23a7ff6a"/%3E%3Cstop offset="1" stop-color="%2358d7ff"/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x="4" y="4" width="56" height="56" rx="16" fill="url(%23g)"/%3E%3Ctext x="32" y="40" font-family="Arial" font-size="22" font-weight="800" text-anchor="middle" fill="%230b0c10"%3ERP%3C/text%3E%3C/svg%3E' />
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="RecoveryPass — Recovery Membership" />
-  <meta property="og:description" content="Herstel als vast onderdeel van je sportweek. 3× per maand. Vaste partners. Geen credits, geen gedoe." />
-  <meta property="og:type" content="website" />
+  <!-- Hippe, strakke font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root{
-      /* Brand: warm & modern */
-      --bg: #ff6a3d;
-      --bg2: #ff2f6d;
-      --card: rgba(255,255,255,.16);
-      --text: rgba(255,255,255,.98);
-      --muted: rgba(255,255,255,.82);
-      --border: rgba(255,255,255,.28);
-      --shadow: 0 20px 50px rgba(75,10,22,.35);
-      --radius: 20px;
+      /* Moroccan sunset palette (oranjeroodroze) */
+      --c1: #ff2a7a;   /* pink */
+      --c2: #ff4a22;   /* orange-red */
+      --c3: #ffb000;   /* amber */
+      --c4: #ff7aa8;   /* soft pink for glow */
+      --w:  rgba(255,255,255,.96);
+      --wm: rgba(255,255,255,.82);
+      --wf: rgba(255,255,255,.62);
 
-      /* Accent: Moroccan sunset */
-      --accent: #ffb84d;
-      --accent2: #ff5b8a;
-      --accent3: #ff8a3d;
+      --glass:  rgba(255,255,255,.14);
+      --glass2: rgba(255,255,255,.22);
+      --stroke: rgba(255,255,255,.30);
+      --shadow: 0 22px 70px rgba(0,0,0,.20);
+      --shadow2: 0 14px 30px rgba(0,0,0,.16);
+      --radius: 26px;
 
-      /* Placeholder visuals (vervang door eigen/licensed beelden) */
-      --img-hero: url('https://trainmore.com/_next/image/?q=75&url=https%3A%2F%2Fimages.ctfassets.net%2Fiwhmgf6ws413%2F39cgmMPz82sVvgdgW66RIx%2F71bb88dd0c220a7f843952dbd90db6dc%2Finfra-red-services-trainmore-secondary-hero-desktop.webp&w=3840');
-      --img-split: url('https://clubsportive.nl/_next/image/?q=75&url=https%3A%2F%2Fimages.ctfassets.net%2F2gvbs2w6tq91%2F6LvphvYvBFXiDbh1VgfBzc%2F82c48a22cc10650a4f64fa4cd04cc6df%2Fcold-plunge-clubsportive-amsterdam-zuidas-feature-slide-two-desktop.webp&w=3840');
-      --img-g1: url('https://images.squarespace-cdn.com/content/v1/61abaaf83ae5707469273975/0b037578-e873-4f00-9590-6c760de3f821/fitness-website-template-for-personal-trainers-and-fitness-coaches');
-      --img-g2: url('https://images.squarespace-cdn.com/content/v1/61abaaf83ae5707469273975/9eccd9d7-956a-4961-b665-81ad1f222cc5/therapy-website-template');
+      /* Subtiele “Moroccan tile” pattern (SVG data-url) */
+      --pattern: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cg fill='none' stroke='white' stroke-opacity='.20' stroke-width='2'%3E%3Cpath d='M80 12 L98 60 L148 80 L98 100 L80 148 L62 100 L12 80 L62 60 Z'/%3E%3Cpath d='M80 38 L92 70 L124 80 L92 90 L80 122 L68 90 L36 80 L68 70 Z'/%3E%3C/g%3E%3C/svg%3E");
+
+      /* Placeholder images (optioneel, alleen voor “art” frames) */
+      --img-a: url('https://clubsportive.nl/_next/image/?q=75&url=https%3A%2F%2Fimages.ctfassets.net%2F2gvbs2w6tq91%2F6LvphvYvBFXiDbh1VgfBzc%2F82c48a22cc10650a4f64fa4cd04cc6df%2Fcold-plunge-clubsportive-amsterdam-zuidas-feature-slide-two-desktop.webp&w=3840');
+      --img-b: url('https://trainmore.com/_next/image/?q=75&url=https%3A%2F%2Fimages.ctfassets.net%2Fiwhmgf6ws413%2F39cgmMPz82sVvgdgW66RIx%2F71bb88dd0c220a7f843952dbd90db6dc%2Finfra-red-services-trainmore-secondary-hero-desktop.webp&w=3840');
     }
 
     *{ box-sizing: border-box; }
     html{ scroll-behavior: smooth; }
     body{
       margin: 0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      color: var(--text);
+      font-family: "Space Grotesk", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      color: var(--w);
+      overflow-x: hidden;
+
+      /* Mega bright, animated gradient (niet donker) */
+      background: linear-gradient(120deg, var(--c1), var(--c2), var(--c3));
+      background-size: 220% 220%;
+      animation: bgShift 12s ease-in-out infinite;
+    }
+
+    /* Pattern overlay */
+    body::before{
+      content:"";
+      position: fixed;
+      inset: 0;
+      background-image: var(--pattern);
+      background-size: 180px 180px;
+      opacity: .14;
+      pointer-events: none;
+      mix-blend-mode: overlay;
+    }
+
+    /* Soft vignette (maar licht) */
+    body::after{
+      content:"";
+      position: fixed;
+      inset: 0;
       background:
-        radial-gradient(900px 600px at 10% 10%, rgba(255,184,77,.45), transparent 60%),
-        radial-gradient(900px 700px at 85% 0%, rgba(255,91,138,.35), transparent 60%),
-        linear-gradient(160deg, var(--bg), var(--bg2));
-      line-height: 1.55;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
+        radial-gradient(1000px 700px at 20% 10%, rgba(255,255,255,.20), transparent 55%),
+        radial-gradient(900px 600px at 80% 0%, rgba(255,255,255,.18), transparent 55%),
+        radial-gradient(1000px 700px at 70% 90%, rgba(0,0,0,.10), transparent 60%);
+      pointer-events: none;
+    }
+
+    @keyframes bgShift{
+      0%{ background-position: 0% 40%; }
+      50%{ background-position: 100% 60%; }
+      100%{ background-position: 0% 40%; }
     }
 
     a{ color: inherit; text-decoration: none; }
-    img{ max-width: 100%; display: block; }
     .container{
-      width: min(1120px, calc(100% - 48px));
+      width: min(1120px, calc(100% - 44px));
       margin: 0 auto;
     }
 
-    /* Skip link */
-    .skip-link{
-      position: absolute;
-      left: 16px; top: 14px;
-      padding: 10px 12px;
-      border-radius: 10px;
-      background: rgba(0,0,0,.7);
-      border: 1px solid var(--border);
-      transform: translateY(-140%);
-      transition: transform .2s ease;
-      z-index: 9999;
+    /* Cursor glow */
+    .cursor-glow{
+      position: fixed;
+      inset: 0 auto auto 0;
+      width: 520px;
+      height: 520px;
+      transform: translate(-50%, -50%);
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.22), transparent 60%);
+      filter: blur(10px);
+      mix-blend-mode: soft-light;
+      opacity: .0;
+      pointer-events: none;
+      z-index: 1;
+      transition: opacity .25s ease;
     }
-    .skip-link:focus{ transform: translateY(0); outline: none; }
+    body:hover .cursor-glow{ opacity: .95; }
+
+    /* Floating blobs */
+    .blobs{
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 0;
+    }
+    .blob{
+      position: absolute;
+      width: 520px;
+      height: 520px;
+      border-radius: 999px;
+      filter: blur(70px);
+      opacity: .35;
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.65), transparent 60%);
+      mix-blend-mode: soft-light;
+      animation: float 16s ease-in-out infinite;
+    }
+    .blob.b1{ top: -120px; left: -120px; animation-duration: 18s; }
+    .blob.b2{ top: 30%; right: -160px; width: 600px; height: 600px; opacity: .30; animation-duration: 20s; }
+    .blob.b3{ bottom: -220px; left: 28%; width: 760px; height: 760px; opacity: .26; animation-duration: 22s; }
+
+    @keyframes float{
+      0%,100%{ transform: translate3d(0,0,0) scale(1); }
+      50%{ transform: translate3d(40px, -30px, 0) scale(1.06); }
+    }
 
     /* Topbar */
-    .topbar{
+    header{
       position: sticky;
       top: 0;
-      z-index: 1000;
-      background: rgba(255,105,61,.6);
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid rgba(255,255,255,.22);
-    }
-    .topbar-inner{
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
+      z-index: 50;
       padding: 14px 0;
-    }
-    .brand{
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      font-weight: 900;
-      letter-spacing: .2px;
-    }
-    .mark{
-      width: 32px; height: 32px;
-      border-radius: 10px;
-      background:
-        radial-gradient(10px 10px at 30% 30%, rgba(255,255,255,.55), transparent 60%),
-        linear-gradient(135deg, rgba(255,184,77,.95), rgba(255,91,138,.95));
-      box-shadow: 0 10px 30px rgba(255,90,90,.35);
-      animation: pulseGlow 3.6s ease-in-out infinite;
+      backdrop-filter: blur(14px);
+      background: rgba(255,255,255,.08);
+      border-bottom: 1px solid rgba(255,255,255,.18);
     }
     .nav{
       display: flex;
       align-items: center;
-      gap: 18px;
-      color: rgba(255,255,255,.92);
+      justify-content: space-between;
+      gap: 14px;
+    }
+    .logo{
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
       font-weight: 800;
-      font-size: 14px;
+      letter-spacing: .3px;
+      text-transform: uppercase;
     }
-    .nav a{
-      padding: 10px 10px;
-      border-radius: 12px;
-      transition: background .2s ease, color .2s ease;
+    .mark{
+      width: 34px; height: 34px;
+      border-radius: 14px;
+      background: rgba(255,255,255,.22);
+      border: 1px solid rgba(255,255,255,.35);
+      box-shadow: var(--shadow2);
+      position: relative;
+      overflow: hidden;
     }
-    .nav a:hover{
-      background: rgba(255,255,255,.2);
-      color: #fff;
+    .mark::before{
+      content:"";
+      position: absolute;
+      inset: -30%;
+      background: linear-gradient(120deg, rgba(255,255,255,.85), rgba(255,255,255,0));
+      transform: rotate(25deg);
+      opacity: .55;
+    }
+
+    nav.links{
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      font-weight: 700;
+      letter-spacing: .2px;
+      color: var(--wm);
+    }
+    nav.links a{
+      padding: 10px 12px;
+      border-radius: 999px;
+      transition: background .2s ease, transform .2s ease;
+    }
+    nav.links a:hover{
+      background: rgba(255,255,255,.12);
+      transform: translateY(-1px);
     }
 
     .actions{
       display: flex;
-      align-items: center;
       gap: 10px;
+      align-items: center;
     }
 
     .btn{
+      position: relative;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 10px;
-      padding: 11px 14px;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,.26);
-      background: rgba(255,255,255,.18);
-      color: var(--text);
-      font-weight: 900;
-      font-size: 14px;
-      letter-spacing: .2px;
-      transition: transform .15s ease, background .2s ease, border-color .2s ease;
-      cursor: pointer;
-    }
-    .btn:hover{ transform: translateY(-2px); background: rgba(255,255,255,.28); border-color: rgba(255,255,255,.42); }
-    .btn:active{ transform: translateY(0); }
-
-    .btn-primary{
-      background: linear-gradient(135deg, rgba(255,184,77,.95), rgba(255,91,138,.95));
+      padding: 12px 14px;
+      border-radius: 999px;
       border: 1px solid rgba(255,255,255,.34);
-      color: #fff;
+      background: rgba(255,255,255,.12);
+      color: var(--w);
+      font-weight: 900;
+      letter-spacing: .2px;
+      cursor: pointer;
+      transform: translateZ(0);
+      transition: transform .18s ease, background .2s ease, border-color .2s ease;
+      box-shadow: 0 16px 30px rgba(0,0,0,.12);
     }
-    .btn-primary:hover{ background: linear-gradient(135deg, rgba(255,184,77,1), rgba(255,91,138,1)); }
-    .btn-ghost{
-      background: transparent;
-      border: 1px solid rgba(255,255,255,.14);
-      color: var(--text);
+    .btn:hover{
+      transform: translateY(-2px);
+      background: rgba(255,255,255,.16);
+      border-color: rgba(255,255,255,.55);
+    }
+    .btn:active{ transform: translateY(0px); }
+
+    .btn.primary{
+      background: rgba(255,255,255,.18);
+      border-color: rgba(255,255,255,.60);
     }
 
-    /* Mobile nav */
+    /* shimmer */
+    .btn::after{
+      content:"";
+      position: absolute;
+      inset: 0;
+      border-radius: 999px;
+      background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,.40) 45%, transparent 70%);
+      transform: translateX(-120%);
+      opacity: .0;
+      pointer-events: none;
+    }
+    .btn:hover::after{
+      opacity: .8;
+      animation: shimmer .9s ease;
+    }
+    @keyframes shimmer{
+      0%{ transform: translateX(-120%); }
+      100%{ transform: translateX(120%); }
+    }
+
     .burger{
       display: none;
-      width: 42px;
-      height: 42px;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,.24);
-      background: rgba(255,255,255,.18);
-      color: var(--text);
+      width: 46px; height: 46px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.34);
+      background: rgba(255,255,255,.12);
+      color: var(--w);
+      cursor: pointer;
       align-items: center;
       justify-content: center;
-      cursor: pointer;
     }
-    .burger svg{ width: 20px; height: 20px; }
+    .burger svg{ width: 22px; height: 22px; }
 
-    .mobile-panel{
+    .mobile{
       display: none;
-      border-top: 1px solid rgba(255,255,255,.08);
-      padding: 10px 0 14px 0;
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px solid rgba(255,255,255,.18);
     }
-    .mobile-panel a{
+    .mobile a{
       display: block;
-      padding: 12px 10px;
-      border-radius: 12px;
-      color: var(--muted);
-      font-weight: 700;
+      padding: 12px 12px;
+      border-radius: 14px;
+      color: var(--wm);
+      font-weight: 800;
     }
-    .mobile-panel a:hover{ background: rgba(255,255,255,.06); color: var(--text); }
+    .mobile a:hover{ background: rgba(255,255,255,.12); color: var(--w); }
 
     /* Hero */
     .hero{
       position: relative;
-      padding: 72px 0 86px;
-      overflow: hidden;
-      border-bottom: 1px solid rgba(255,255,255,.08);
+      padding: 72px 0 34px 0;
+      z-index: 5;
     }
-    .hero::before{
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(180deg, rgba(255,92,90,.2), rgba(120,20,40,.82)),
-        radial-gradient(900px 500px at 20% 20%, rgba(255,184,77,.4), transparent 60%),
-        radial-gradient(700px 500px at 80% 10%, rgba(255,91,138,.35), transparent 60%),
-        var(--img-hero) center/cover no-repeat;
-      transform: scale(1.05);
-      filter: saturate(1.1) contrast(1.05);
-      animation: heroFloat 18s ease-in-out infinite;
-    }
-    .hero::after{
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(90deg, rgba(0,0,0,.5), transparent 40%, rgba(0,0,0,.45));
-      pointer-events: none;
-    }
-
-    .hero__grid{
-      position: relative;
+    .hero-grid{
       display: grid;
       grid-template-columns: 1.05fr .95fr;
-      gap: 34px;
+      gap: 18px;
       align-items: center;
     }
-    .kicker{
+    .pill{
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      padding: 8px 12px;
+      padding: 9px 12px;
       border-radius: 999px;
-      border: 1px solid rgba(255,255,255,.3);
-      background: rgba(255,255,255,.2);
-      color: rgba(255,255,255,.82);
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.28);
       font-weight: 900;
-      font-size: 13px;
-      letter-spacing: .2px;
-      animation: floatIn 6s ease-in-out infinite;
+      letter-spacing: .25px;
+      text-transform: uppercase;
+      color: var(--w);
+      width: fit-content;
     }
-    .dot{
+    .spark{
       width: 8px; height: 8px;
       border-radius: 999px;
-      background: var(--accent);
-      box-shadow: 0 0 0 8px rgba(255,184,77,.25);
+      background: rgba(255,255,255,.9);
+      box-shadow: 0 0 0 8px rgba(255,255,255,.16);
     }
-    .dot--red{ background: #ff5f57; box-shadow: none; }
-    .dot--yellow{ background: #febc2e; box-shadow: none; }
-    .dot--green{ background: #28c840; box-shadow: none; }
-    .hero__copy h1{
-      margin: 16px 0 12px 0;
-      font-size: clamp(34px, 4.8vw, 58px);
-      line-height: 1.02;
-      letter-spacing: -1px;
+
+    h1{
+      margin: 14px 0 10px 0;
+      font-size: clamp(44px, 6.6vw, 86px);
+      line-height: .95;
+      letter-spacing: -1.2px;
       font-weight: 900;
-      text-shadow: 0 14px 40px rgba(120,20,40,.45);
+      text-transform: uppercase;
     }
-    .hero__sub{
-      margin: 0 0 22px;
-      color: rgba(255,255,255,.88);
-      font-size: 16px;
-      max-width: 44ch;
+    .sub{
+      margin: 0;
+      font-size: 18px;
+      font-weight: 650;
+      color: var(--wm);
+      max-width: 48ch;
     }
-    .hero__cta{
-      display:flex;
+    .cta{
+      margin-top: 18px;
+      display: flex;
       gap: 12px;
       flex-wrap: wrap;
-      margin-bottom: 18px;
+      align-items: center;
     }
-    .hero__points{
-      display:flex;
-      gap: 14px;
+
+    .mini{
+      margin-top: 16px;
+      display: flex;
+      gap: 12px;
       flex-wrap: wrap;
-      margin: 0;
-      padding: 0;
-      list-style: none;
-      color: var(--muted);
-      font-size: 14px;
+      color: var(--wf);
+      font-weight: 800;
+      letter-spacing: .2px;
+      text-transform: uppercase;
+      font-size: 12px;
     }
-    .hero__points li{
+    .mini span{
       padding: 8px 10px;
       border-radius: 999px;
-      background: rgba(255,255,255,0.16);
-      border: 1px solid rgba(255,255,255,0.28);
+      background: rgba(255,255,255,.10);
+      border: 1px solid rgba(255,255,255,.22);
     }
 
-    .demo-shell{
-      border-radius: var(--radius);
-      background: linear-gradient(180deg, rgba(255,255,255,0.2), rgba(255,255,255,0.08));
-      border: 1px solid rgba(255,255,255,0.24);
+    /* Hero art frames */
+    .art{
+      position: relative;
+      min-height: 430px;
+    }
+    .frame{
+      position: absolute;
+      border-radius: calc(var(--radius) + 10px);
+      border: 1px solid rgba(255,255,255,.32);
+      background: rgba(255,255,255,.10);
       box-shadow: var(--shadow);
       overflow: hidden;
+      transform-style: preserve-3d;
     }
-    .demo-shell__topbar{
-      display:flex;
-      align-items:center;
-      gap: 8px;
-      padding: 12px 14px;
-      border-bottom: 1px solid rgba(255,255,255,0.16);
-      background: rgba(0,0,0,0.18);
-    }
-    .demo-shell__title{
-      margin-left: 8px;
-      font-size: 13px;
-      color: rgba(255,255,255,0.75);
-    }
-    .demo-shell__body{
-      position: relative;
-      padding: 14px;
-      background: rgba(0,0,0,0.12);
-    }
-    .demo-video{
-      width: 100%;
-      aspect-ratio: 16 / 10;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,0.2);
-      background: rgba(255,255,255,0.08);
-      display: block;
-      object-fit: cover;
-    }
-    .demo-fallback{
+    .frame::before{
+      content:"";
       position: absolute;
-      inset: 14px;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,0.18);
-      background: rgba(255,255,255,0.08);
-      padding: 16px;
-      display:flex;
-      flex-direction:column;
-      gap: 14px;
+      inset: 0;
+      background:
+        radial-gradient(900px 420px at 30% 20%, rgba(255,255,255,.25), transparent 60%),
+        linear-gradient(180deg, rgba(0,0,0,.08), rgba(0,0,0,.28));
+      pointer-events: none;
+      z-index: 2;
     }
-    .demo-step{
-      background: rgba(255,255,255,0.1);
-      border: 1px solid rgba(255,255,255,0.2);
-      border-radius: 14px;
-      padding: 12px 12px;
-      opacity: 0;
-      transform: translateY(6px);
+    .frame.one{
+      inset: 0 0 auto auto;
+      width: min(430px, 95%);
+      height: 310px;
+      transform: rotate(2.5deg);
+      background-image: var(--img-a);
+      background-size: cover;
+      background-position: center;
+      animation: frameFloat 7.5s ease-in-out infinite;
     }
-    .demo-label{
-      font-size: 12px;
-      color: rgba(255,255,255,0.72);
-      margin-bottom: 10px;
+    .frame.two{
+      left: 0;
+      bottom: 0;
+      width: min(360px, 85%);
+      height: 260px;
+      transform: rotate(-4deg);
+      background-image: var(--img-b);
+      background-size: cover;
+      background-position: center;
+      animation: frameFloat2 8.5s ease-in-out infinite;
     }
-    .demo-row{
-      display:flex;
-      align-items:center;
-      gap: 10px;
+    @keyframes frameFloat{
+      0%,100%{ transform: translateY(0) rotate(2.5deg); }
+      50%{ transform: translateY(-10px) rotate(1.2deg); }
     }
-    .demo-icon{
-      width: 28px;
-      height: 28px;
-      border-radius: 10px;
-      background: rgba(255,255,255,0.16);
-      border: 1px solid rgba(255,255,255,0.2);
-    }
-    .demo-text{
-      font-weight: 600;
-      font-size: 14px;
-      letter-spacing: -0.01em;
-    }
-    .demo-chip{
-      margin-left: auto;
-      font-size: 12px;
-      padding: 6px 10px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.18);
-      border: 1px solid rgba(255,255,255,0.22);
-      color: rgba(255,255,255,0.88);
-    }
-    .demo-progress{
-      height: 12px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.18);
-      background: rgba(0,0,0,0.15);
-      overflow: hidden;
-    }
-    .demo-progress__bar{
-      height: 100%;
-      width: 0%;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.4);
-    }
-    .demo-muted{
-      margin-top: 10px;
-      font-size: 12px;
-      color: rgba(255,255,255,0.68);
-    }
-    .demo-result{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap: 12px;
-    }
-    .demo-metric{
-      display:flex;
-      flex-direction:column;
-      gap: 2px;
-    }
-    .demo-metric__value{
-      font-size: 20px;
-      font-weight: 800;
-      letter-spacing: -0.02em;
-    }
-    .demo-metric__label{
-      font-size: 12px;
-      color: rgba(255,255,255,0.66);
-    }
-    .demo-chips{
-      display:flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      justify-content:flex-end;
+    @keyframes frameFloat2{
+      0%,100%{ transform: translateY(0) rotate(-4deg); }
+      50%{ transform: translateY(12px) rotate(-2.8deg); }
     }
 
-    @keyframes stepIn {
-      0%, 12% { opacity: 0; transform: translateY(6px); }
-      18%, 34% { opacity: 1; transform: translateY(0); }
-      40% { opacity: 0; transform: translateY(-4px); }
-      100% { opacity: 0; transform: translateY(-4px); }
+    /* Marquee */
+    .marquee{
+      margin-top: 36px;
+      border-top: 1px solid rgba(255,255,255,.22);
+      border-bottom: 1px solid rgba(255,255,255,.22);
+      background: rgba(255,255,255,.08);
+      overflow: hidden;
     }
-    @keyframes stepIn2 {
-      0%, 34% { opacity: 0; transform: translateY(6px); }
-      40%, 62% { opacity: 1; transform: translateY(0); }
-      68% { opacity: 0; transform: translateY(-4px); }
-      100% { opacity: 0; transform: translateY(-4px); }
+    .track{
+      display: flex;
+      gap: 22px;
+      padding: 14px 0;
+      white-space: nowrap;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .7px;
+      color: rgba(255,255,255,.88);
+      animation: scroll 18s linear infinite;
     }
-    @keyframes stepIn3 {
-      0%, 62% { opacity: 0; transform: translateY(6px); }
-      68%, 96% { opacity: 1; transform: translateY(0); }
-      100% { opacity: 0; transform: translateY(0); }
+    .track span{ opacity: .95; }
+    @keyframes scroll{
+      0%{ transform: translateX(0); }
+      100%{ transform: translateX(-50%); }
     }
-    @keyframes progressFill {
-      0%, 40% { width: 0%; }
-      60% { width: 100%; }
-      62% { width: 100%; }
-      100% { width: 0%; }
-    }
-    .demo-step--1{ animation: stepIn 10s infinite; }
-    .demo-step--2{ animation: stepIn2 10s infinite; }
-    .demo-step--3{ animation: stepIn3 10s infinite; }
-    .demo-step--2 .demo-progress__bar{ animation: progressFill 10s infinite; }
 
     /* Sections */
     .section{
-      padding: 84px 0;
+      padding: 70px 0;
+      position: relative;
+      z-index: 5;
     }
-    .section-title{
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      gap: 18px;
-      margin-bottom: 22px;
-    }
-    .section-title h2{
-      margin: 0;
-      font-size: clamp(24px, 2.6vw, 36px);
+    .section h2{
+      margin: 0 0 14px 0;
+      font-size: clamp(28px, 3.8vw, 44px);
+      line-height: 1.05;
       letter-spacing: -0.6px;
-      line-height: 1.1;
+      text-transform: uppercase;
+      font-weight: 900;
     }
-    .section-title p{
+    .hint{
       margin: 0;
-      color: rgba(255,255,255,.88);
-      max-width: 52ch;
-      font-weight: 800;
+      color: var(--wm);
+      font-weight: 650;
+      max-width: 60ch;
     }
 
-    .grid{ display: grid; gap: 16px; }
-    .grid-3{ grid-template-columns: repeat(3, minmax(0, 1fr)); }
-    .grid-2{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid3{
+      margin-top: 18px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
 
     .card{
       border-radius: var(--radius);
-      background: rgba(255,255,255,.16);
-      border: 1px solid rgba(255,255,255,.3);
-      box-shadow: 0 12px 30px rgba(120,20,40,.25);
-      overflow: hidden;
-      transition: transform .2s ease, box-shadow .2s ease;
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.28);
+      box-shadow: var(--shadow2);
+      padding: 18px;
+      transform-style: preserve-3d;
+      backdrop-filter: blur(16px);
+      transition: transform .18s ease, background .2s ease, border-color .2s ease;
     }
     .card:hover{
-      transform: translateY(-4px);
-      box-shadow: 0 18px 40px rgba(120,20,40,.35);
+      background: rgba(255,255,255,.15);
+      border-color: rgba(255,255,255,.45);
+      transform: translateY(-2px);
     }
-    .card-inner{ padding: 18px; }
-    .card h3{
-      margin: 0 0 8px 0;
-      font-size: 18px;
-      letter-spacing: -0.3px;
+
+    .tag{
+      display: inline-flex;
+      gap: 10px;
+      align-items: center;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .35px;
+      font-size: 12px;
+      color: rgba(255,255,255,.88);
     }
+    .tag i{
+      width: 9px; height: 9px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.90);
+      box-shadow: 0 0 0 9px rgba(255,255,255,.14);
+      display: inline-block;
+    }
+
     .card p{
-      margin: 0;
-      color: var(--muted);
+      margin: 10px 0 0 0;
+      color: var(--wm);
+      font-weight: 650;
     }
 
-    .icon{
-      width: 38px; height: 38px;
-      border-radius: 14px;
-      display: grid;
-      place-items: center;
-      margin-bottom: 12px;
-      background: linear-gradient(135deg, rgba(255,184,77,.35), rgba(255,91,138,.3));
-      border: 1px solid rgba(255,255,255,.32);
-    }
-    .icon svg{ width: 18px; height: 18px; opacity: .9; }
-
-    /* Split */
-    .split{
-      display: grid;
-      grid-template-columns: 1.05fr .95fr;
-      gap: 18px;
-      align-items: stretch;
-    }
-    .media{
-      border-radius: calc(var(--radius) + 6px);
-      border: 1px solid rgba(255,255,255,.3);
-      overflow: hidden;
-      position: relative;
-      min-height: 420px;
-      background:
-        radial-gradient(900px 400px at 30% 30%, rgba(255,184,77,.35), transparent 60%),
-        linear-gradient(180deg, rgba(0,0,0,.08), rgba(70,10,20,.55)),
-        var(--img-split) center/cover no-repeat;
-      box-shadow: var(--shadow);
-    }
-    .media .chip{
-      position: absolute;
-      left: 16px; top: 16px;
-      padding: 8px 10px;
-      border-radius: 999px;
-      background: rgba(0,0,0,.35);
-      border: 1px solid rgba(255,255,255,.16);
-      color: rgba(255,255,255,.85);
-      font-weight: 800;
-      font-size: 13px;
-      letter-spacing: .15px;
-      backdrop-filter: blur(10px);
-    }
-
-    .bullets{
-      display: grid;
-      gap: 10px;
-      margin: 16px 0 0 0;
-      padding: 0;
-      list-style: none;
-    }
-    .bullets li{
-      display: flex;
-      gap: 10px;
-      align-items: flex-start;
-      padding: 12px 12px;
-      background: rgba(255,255,255,.16);
-      border: 1px solid rgba(255,255,255,.28);
-      border-radius: 14px;
-      color: rgba(255,255,255,.82);
-    }
-    .check{
-      width: 22px; height: 22px;
-      border-radius: 999px;
-      background: rgba(255,184,77,.3);
-      border: 1px solid rgba(255,184,77,.6);
-      display: grid;
-      place-items: center;
-      flex: 0 0 auto;
-      margin-top: 1px;
-    }
-    .check svg{ width: 14px; height: 14px; }
-
-    /* Pricing */
-    .pricing{
+    /* Plans */
+    .plans{
+      margin-top: 18px;
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 16px;
-      margin-top: 18px;
+      gap: 14px;
     }
     .plan{
       position: relative;
-      border-radius: calc(var(--radius) + 6px);
-      background: rgba(255,255,255,.18);
-      border: 1px solid rgba(255,255,255,.3);
-      box-shadow: 0 12px 30px rgba(120,20,40,.25);
+      border-radius: calc(var(--radius) + 4px);
+      padding: 18px;
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.30);
+      box-shadow: var(--shadow);
       overflow: hidden;
-      transition: transform .2s ease, box-shadow .2s ease;
-    }
-    .plan:hover{
-      transform: translateY(-4px);
-      box-shadow: 0 18px 40px rgba(120,20,40,.35);
+      backdrop-filter: blur(18px);
+      transform-style: preserve-3d;
     }
     .plan.featured{
       background:
-        radial-gradient(700px 420px at 20% 10%, rgba(255,184,77,.32), transparent 60%),
-        radial-gradient(700px 420px at 90% 0%, rgba(255,91,138,.28), transparent 60%),
-        rgba(255,255,255,.2);
-      border-color: rgba(255,255,255,.36);
+        radial-gradient(700px 420px at 20% 10%, rgba(255,255,255,.22), transparent 60%),
+        rgba(255,255,255,.13);
+      border-color: rgba(255,255,255,.44);
     }
-    .plan .top{ padding: 20px 20px 0 20px; }
-    .badge{
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 7px 10px;
-      border-radius: 999px;
+    .plan .name{
       font-weight: 900;
-      font-size: 12px;
-      letter-spacing: .2px;
-      background: rgba(255,255,255,.2);
-      border: 1px solid rgba(255,255,255,.32);
-      color: rgba(255,255,255,.86);
-      backdrop-filter: blur(10px);
-    }
-    .badge .spark{
-      width: 8px; height: 8px;
-      border-radius: 999px;
-      background: var(--accent2);
-      box-shadow: 0 0 0 8px rgba(255,91,138,.2);
-    }
-    .plan h3{
-      margin: 12px 0 8px 0;
-      font-size: 20px;
-      letter-spacing: -0.4px;
+      text-transform: uppercase;
+      letter-spacing: .35px;
+      font-size: 13px;
+      opacity: .95;
     }
     .price{
+      margin: 10px 0 10px 0;
       display: flex;
       align-items: baseline;
-      gap: 8px;
-      margin: 10px 0 10px 0;
+      gap: 10px;
     }
     .price strong{
-      font-size: 40px;
-      letter-spacing: -1px;
+      font-size: 44px;
       line-height: 1;
+      letter-spacing: -1px;
+      font-weight: 900;
     }
     .price span{
-      color: var(--muted);
+      color: var(--wm);
       font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .35px;
+      font-size: 12px;
     }
-    .plan .desc{
-      color: var(--muted);
-      margin: 0 0 10px 0;
-    }
-    .plan .list{
-      padding: 0 20px;
-      margin: 0;
+    .bullets{
+      margin: 10px 0 0 0;
+      padding: 0;
       list-style: none;
       display: grid;
       gap: 10px;
+      color: var(--wm);
+      font-weight: 700;
     }
-    .plan .list li{
-      display: flex;
-      gap: 10px;
-      align-items: flex-start;
-      color: rgba(255,255,255,.82);
-      background: rgba(255,255,255,.16);
-      border: 1px solid rgba(255,255,255,.3);
-      border-radius: 14px;
-      padding: 12px 12px;
+    .bullets li{
+      padding: 10px 12px;
+      border-radius: 16px;
+      background: rgba(255,255,255,.10);
+      border: 1px solid rgba(255,255,255,.22);
     }
-    .plan .bottom{
-      padding: 18px 20px 20px 20px;
+    .plan .plan-cta{
+      margin-top: 14px;
       display: flex;
       gap: 10px;
       flex-wrap: wrap;
       align-items: center;
-      justify-content: space-between;
-    }
-    .fineprint{
-      color: rgba(255,255,255,.55);
-      font-size: 12px;
-      margin-top: 10px;
     }
 
-    /* Gallery */
-    .gallery{
-      display: grid;
-      grid-template-columns: 1.4fr .9fr;
-      gap: 16px;
-      margin-top: 18px;
-    }
-    .shot{
-      border-radius: calc(var(--radius) + 6px);
-      border: 1px solid rgba(255,255,255,.3);
-      overflow: hidden;
-      min-height: 340px;
-      background: rgba(255,255,255,.14);
-      position: relative;
-      box-shadow: 0 14px 40px rgba(120,20,40,.3);
-    }
-    .shot.big{
-      background:
-        linear-gradient(180deg, rgba(0,0,0,.08), rgba(0,0,0,.55)),
-        var(--img-g1) center/cover no-repeat;
-    }
-    .shot.small{
-      background:
-        linear-gradient(180deg, rgba(0,0,0,.08), rgba(0,0,0,.55)),
-        var(--img-g2) center/cover no-repeat;
-      min-height: 162px;
-    }
-    .shot .label{
-      position: absolute;
-      left: 16px; bottom: 16px;
-      padding: 10px 12px;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,.3);
-      background: rgba(255,255,255,.2);
-      backdrop-filter: blur(12px);
-      font-weight: 900;
-      letter-spacing: .2px;
-      color: rgba(255,255,255,.88);
-      max-width: 28ch;
-    }
-    .stack{ display: grid; gap: 16px; }
-
-    /* FAQ */
-    details{
-      border-radius: var(--radius);
-      background: rgba(255,255,255,.16);
-      border: 1px solid rgba(255,255,255,.3);
-      box-shadow: 0 12px 30px rgba(120,20,40,.25);
-      overflow: hidden;
-    }
-    summary{
-      cursor: pointer;
-      padding: 16px 16px;
-      list-style: none;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 14px;
-      font-weight: 900;
-      letter-spacing: -0.2px;
-    }
-    summary::-webkit-details-marker{ display: none; }
-    .chev{
-      width: 34px; height: 34px;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,.3);
-      background: rgba(255,255,255,.16);
-      display: grid;
-      place-items: center;
-      flex: 0 0 auto;
-      transition: transform .18s ease;
-    }
-    details[open] .chev{ transform: rotate(180deg); }
-    .faq-body{
-      padding: 0 16px 16px 16px;
-      color: var(--muted);
-    }
-
-    /* CTA band */
-    .cta-band{
+    /* Join */
+    .join{
       border-radius: calc(var(--radius) + 10px);
-      border: 1px solid rgba(255,255,255,.3);
-      background:
-        radial-gradient(700px 420px at 20% 20%, rgba(255,184,77,.28), transparent 60%),
-        radial-gradient(700px 420px at 80% 0%, rgba(255,91,138,.25), transparent 60%),
-        rgba(255,255,255,.2);
+      padding: 20px;
+      background: rgba(255,255,255,.14);
+      border: 1px solid rgba(255,255,255,.34);
       box-shadow: var(--shadow);
-      padding: 22px;
+      backdrop-filter: blur(18px);
       display: grid;
-      grid-template-columns: 1.15fr .85fr;
-      gap: 16px;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 14px;
       align-items: center;
     }
-    .cta-band h3{
-      margin: 0 0 8px 0;
-      font-size: 22px;
-      letter-spacing: -0.4px;
-    }
-    .cta-band p{ margin: 0; color: var(--muted); }
+    .join h2{ margin-bottom: 8px; }
+    .join p{ margin: 0; color: var(--wm); font-weight: 650; }
 
-    /* Footer */
+    form{
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+    input{
+      flex: 1 1 220px;
+      padding: 14px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.36);
+      background: rgba(255,255,255,.12);
+      color: var(--w);
+      font-weight: 800;
+      outline: none;
+    }
+    input::placeholder{ color: rgba(255,255,255,.70); }
+
     footer{
-      padding: 30px 0 44px 0;
-      color: rgba(255,255,255,.75);
+      padding: 26px 0 44px 0;
+      color: rgba(255,255,255,.70);
+      font-weight: 650;
+      position: relative;
+      z-index: 5;
     }
-    .footer-grid{
-      display: grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap: 16px;
-      align-items: start;
-    }
-    .footer-links{
-      display: grid;
-      gap: 8px;
-      justify-items: start;
-    }
-    .footer-links a{
-      color: rgba(255,255,255,.9);
-      padding: 8px 10px;
-      border-radius: 12px;
-    }
-    .footer-links a:hover{ background: rgba(255,255,255,.2); }
-
-    @keyframes heroFloat{
-      0%, 100%{ transform: scale(1.05) translateY(0); }
-      50%{ transform: scale(1.08) translateY(-10px); }
-    }
-    @keyframes pulseGlow{
-      0%, 100%{ box-shadow: 0 10px 30px rgba(255,90,90,.35); transform: scale(1); }
-      50%{ box-shadow: 0 14px 40px rgba(255,184,77,.45); transform: scale(1.04); }
-    }
-    @keyframes floatIn{
-      0%, 100%{ transform: translateY(0); }
-      50%{ transform: translateY(-6px); }
+    .foot{
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      align-items: center;
     }
 
-    /* Reveal animation */
-    .reveal{ opacity: 0; transform: translateY(12px); transition: opacity .6s ease, transform .6s ease; }
-    .reveal.is-visible{ opacity: 1; transform: translateY(0); }
+    /* Reveal */
+    .reveal{
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity .65s ease, transform .65s ease;
+    }
+    .reveal.in{
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Magnetic */
+    .magnetic{
+      --mx: 0px;
+      --my: 0px;
+      transform: translate(var(--mx), var(--my));
+      will-change: transform;
+    }
+
+    /* Tilt */
+    .tilt{
+      transform: perspective(900px) rotateX(0deg) rotateY(0deg);
+      will-change: transform;
+    }
 
     /* Responsive */
     @media (max-width: 920px){
-      .grid-3{ grid-template-columns: 1fr; }
-      .grid-2{ grid-template-columns: 1fr; }
-      .split{ grid-template-columns: 1fr; }
-      .pricing{ grid-template-columns: 1fr; }
-      .gallery{ grid-template-columns: 1fr; }
-      .cta-band{ grid-template-columns: 1fr; }
-      .hero__grid{ grid-template-columns: 1fr; }
-      .section-title{ flex-direction: column; align-items: flex-start; }
-      .nav{ display: none; }
+      nav.links{ display: none; }
       .burger{ display: inline-flex; }
-      .mobile-panel{ display: none; }
-      .topbar[data-open="true"] .mobile-panel{ display: block; }
+      .hero-grid{ grid-template-columns: 1fr; }
+      .art{ min-height: 360px; }
+      .frame.one{ width: 100%; height: 280px; }
+      .frame.two{ width: 88%; height: 240px; }
+      .grid3{ grid-template-columns: 1fr; }
+      .plans{ grid-template-columns: 1fr; }
+      .join{ grid-template-columns: 1fr; }
+      form{ justify-content: stretch; }
     }
 
+    /* Reduced motion */
     @media (prefers-reduced-motion: reduce){
       html{ scroll-behavior: auto; }
+      body{ animation: none; }
+      .track{ animation: none; transform: none; }
+      .blob{ animation: none; }
+      .frame.one, .frame.two{ animation: none; }
       .reveal{ opacity: 1; transform: none; transition: none; }
-      .btn{ transition: none; }
-      details[open] .chev{ transform: none; }
-      .demo-step,
-      .demo-step--2 .demo-progress__bar{
-        animation: none !important;
-        opacity: 1 !important;
-        transform: none !important;
-        width: 100% !important;
-      }
+      .cursor-glow{ display: none; }
+      .btn::after{ animation: none; }
     }
   </style>
 </head>
 
 <body>
-  <a class="skip-link" href="#content">Sla navigatie over</a>
+  <div class="blobs" aria-hidden="true">
+    <div class="blob b1"></div>
+    <div class="blob b2"></div>
+    <div class="blob b3"></div>
+  </div>
+  <div class="cursor-glow" aria-hidden="true"></div>
 
-  <header class="topbar" id="topbar" data-open="false">
+  <header id="topbar">
     <div class="container">
-      <div class="topbar-inner">
-        <a class="brand" href="#top">
+      <div class="nav">
+        <a class="logo" href="#top">
           <span class="mark" aria-hidden="true"></span>
           <span>RecoveryPass</span>
         </a>
 
-        <nav class="nav" aria-label="Hoofdnavigatie">
-          <a href="#hoe">Hoe het werkt</a>
-          <a href="#wat">Wat zit erin</a>
-          <a href="#abonnement">Abonnementen</a>
-          <a href="#faq">FAQ</a>
+        <nav class="links" aria-label="Navigatie">
+          <a href="#how">How</a>
+          <a href="#memberships">Memberships</a>
+          <a href="#join">Join</a>
         </nav>
 
         <div class="actions">
-          <a class="btn btn-ghost" href="#abonnement">Bekijk prijzen</a>
-          <a class="btn btn-primary" href="#signup">Word member</a>
+          <a class="btn magnetic" href="#memberships">Prijzen</a>
+          <a class="btn primary magnetic" href="#join">Join</a>
 
           <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
@@ -880,531 +708,254 @@
         </div>
       </div>
 
-      <div class="mobile-panel" aria-label="Mobiel menu">
-        <a href="#hoe">Hoe het werkt</a>
-        <a href="#wat">Wat zit erin</a>
-        <a href="#abonnement">Abonnementen</a>
-        <a href="#faq">FAQ</a>
-        <a href="#signup">Word member</a>
+      <div class="mobile" id="mobile">
+        <a href="#how">How</a>
+        <a href="#memberships">Memberships</a>
+        <a href="#join">Join</a>
       </div>
     </div>
   </header>
 
-  <main id="content">
-    <!-- HERO -->
-    <section class="hero" id="top" aria-label="Hero">
-      <div class="container hero__grid">
-        <div class="hero__copy">
-          <div class="kicker">
-            <span class="dot" aria-hidden="true"></span>
-            RecoveryPass — herstel als systeem
+  <main id="top" style="position:relative; z-index:4;">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="reveal">
+          <div class="pill"><span class="spark" aria-hidden="true"></span> Amsterdam pilot • limited spots</div>
+
+          <h1>Herstel.<br>Repeat.</h1>
+
+          <p class="sub">
+            3× per maand recovery. <strong>Heat</strong> • <strong>Cold</strong> • <strong>Lounge</strong>.
+          </p>
+
+          <div class="cta">
+            <a class="btn primary magnetic" href="#join">Join waitlist</a>
+            <a class="btn magnetic" href="#memberships">Bekijk memberships</a>
           </div>
 
-          <h1>Herstel gepland. Automatisch.</h1>
-          <p class="hero__sub">Plan → Herstel → Klaar voor je volgende training.</p>
-
-          <div class="hero__cta">
-            <a class="btn btn-primary" href="#demo">Bekijk demo</a>
-            <a class="btn btn-ghost" href="#signup">Plan een korte call</a>
+          <div class="mini" aria-label="Highlights">
+            <span>3× / maand</span>
+            <span>curated partners</span>
+            <span>no credits</span>
+            <span>member deals</span>
           </div>
-
-          <ul class="hero__points" aria-label="Kernpunten">
-            <li>Sneller herstel</li>
-            <li>Consistente routine</li>
-            <li>Minder gedoe</li>
-          </ul>
         </div>
 
-        <div class="hero__visual" id="demo" aria-label="Geanimeerde demo van RecoveryPass">
-          <div class="demo-shell">
-            <div class="demo-shell__topbar">
-              <span class="dot dot--red" aria-hidden="true"></span>
-              <span class="dot dot--yellow" aria-hidden="true"></span>
-              <span class="dot dot--green" aria-hidden="true"></span>
-              <span class="demo-shell__title">RecoveryPass demo</span>
-            </div>
+        <div class="art reveal">
+          <div class="frame one tilt" aria-label="Recovery visual"></div>
+          <div class="frame two tilt" aria-label="Heat visual"></div>
+        </div>
+      </div>
 
-            <div class="demo-shell__body">
-              <video class="demo-video" autoplay muted loop playsinline preload="metadata" poster="demo-poster.webp">
-                <source src="demo.webm" type="video/webm" />
-                <source src="demo.mp4" type="video/mp4" />
-              </video>
+      <div class="marquee" aria-hidden="true">
+        <div class="track">
+          <span>HEAT • COLD • LOUNGE • RESET • REPEAT •</span>
+          <span>HEAT • COLD • LOUNGE • RESET • REPEAT •</span>
+          <span>HEAT • COLD • LOUNGE • RESET • REPEAT •</span>
+          <span>HEAT • COLD • LOUNGE • RESET • REPEAT •</span>
+        </div>
+      </div>
+    </section>
 
-              <div class="demo-fallback" aria-hidden="true">
-                <div class="demo-step demo-step--1">
-                  <div class="demo-label">1. Plan</div>
-                  <div class="demo-row">
-                    <span class="demo-icon" aria-hidden="true"></span>
-                    <span class="demo-text">Sauna + cold plunge</span>
-                    <span class="demo-chip">Geboekt</span>
-                  </div>
-                </div>
+    <section class="section" id="how">
+      <div class="container reveal">
+        <h2>3 stappen. Klaar.</h2>
+        <p class="hint">Geen gedoe, geen keuze-stress. Gewoon routine.</p>
 
-                <div class="demo-step demo-step--2">
-                  <div class="demo-label">2. Herstel</div>
-                  <div class="demo-progress">
-                    <div class="demo-progress__bar"></div>
-                  </div>
-                  <div class="demo-muted">Check-in, sessie loopt, klaar om te gaan</div>
-                </div>
-
-                <div class="demo-step demo-step--3">
-                  <div class="demo-label">3. Resultaat</div>
-                  <div class="demo-result">
-                    <div class="demo-metric">
-                      <span class="demo-metric__value">48 uur</span>
-                      <span class="demo-metric__label">tot volgende training</span>
-                    </div>
-                    <div class="demo-chips">
-                      <span class="demo-chip">Samenvatting</span>
-                      <span class="demo-chip">Herstel</span>
-                      <span class="demo-chip">Acties</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- /fallback -->
-            </div>
+        <div class="grid3" style="margin-top: 18px;">
+          <div class="card tilt">
+            <div class="tag"><i></i> Word member</div>
+            <p>Basic of Plus.</p>
+          </div>
+          <div class="card tilt">
+            <div class="tag"><i></i> Boek</div>
+            <p>3 momenten per maand.</p>
+          </div>
+          <div class="card tilt">
+            <div class="tag"><i></i> Reset</div>
+            <p>Train. Recover. Repeat.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- HOW -->
-    <section class="section">
+    <section class="section" id="memberships">
       <div class="container reveal">
-        <div class="section-title">
-          <h2 id="hoe">Hoe het werkt</h2>
-          <p>Herstel als routine. Kort. Simpel. Concreet.</p>
-        </div>
+        <h2>Memberships</h2>
+        <p class="hint">Klein, strak, voorspelbaar.</p>
 
-        <div class="grid grid-3">
-          <article class="card">
-            <div class="card-inner">
-              <div class="icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M12 2v6"></path><path d="M12 16v6"></path>
-                  <path d="M2 12h6"></path><path d="M16 12h6"></path>
-                  <path d="M4.93 4.93l4.24 4.24"></path><path d="M14.83 14.83l4.24 4.24"></path>
-                </svg>
-              </div>
-              <h3>1) Kies je membership</h3>
-              <p>Basic of Plus. Heldere keuze.</p>
-            </div>
-          </article>
-
-          <article class="card">
-            <div class="card-inner">
-              <div class="icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M8 7V3"></path><path d="M16 7V3"></path>
-                  <path d="M4 11h16"></path>
-                  <path d="M5 21h14a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2z"></path>
-                </svg>
-              </div>
-              <h3>2) Plan 3 momenten</h3>
-              <p>Vaste partners. Jij boekt, klaar.</p>
-            </div>
-          </article>
-
-          <article class="card">
-            <div class="card-inner">
-              <div class="icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M7 20h10"></path>
-                  <path d="M9 16V8a3 3 0 0 1 6 0v8"></path>
-                  <path d="M5 12h14"></path>
-                </svg>
-              </div>
-              <h3>3) Train hard. Herstel slim.</h3>
-              <p>Train hard. Herstel slim.</p>
-            </div>
-          </article>
-        </div>
-
-        <div class="gallery">
-          <div class="shot big" aria-label="Sfeerbeeld training/recovery">
-            <div class="label">Recovery is geen luxe. Het is je edge.</div>
-          </div>
-          <div class="stack">
-            <div class="shot small" aria-label="Sfeerbeeld rustige ruimte">
-              <div class="label">Warmte. Koud. Rust.</div>
-            </div>
-            <div class="card">
-              <div class="card-inner">
-                <h3>Past naast wat je al doet</h3>
-                <p>
-                  RecoveryPass is de logische aanvulling erna.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <p class="fineprint">
-          *De beelden op deze demo-pagina zijn placeholders ter inspiratie. Vervang met eigen/licensed fotografie voor productie.
-        </p>
-      </div>
-    </section>
-
-    <!-- WHAT'S INCLUDED -->
-    <section class="section">
-      <div class="container reveal">
-        <div class="section-title">
-          <h2 id="wat">Wat zit erin</h2>
-          <p>Vast. Overzichtelijk. Zonder ruis.</p>
-        </div>
-
-        <div class="split">
-          <div class="media">
-            <div class="chip">Partner recovery spots</div>
-          </div>
-
-          <div class="card">
-            <div class="card-inner">
-              <h3>De kern: 3× herstel per maand</h3>
-              <p style="color: var(--muted); margin-top: 6px;">
-                Geen catalogus. Alleen vaste formats.
-              </p>
-
-              <ul class="bullets" aria-label="Inhoud van het abonnement">
-                <li>
-                  <span class="check" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M20 6 9 17l-5-5"></path>
-                    </svg>
-                  </span>
-                  <span><strong>Sauna / heat</strong><br><span style="color: var(--muted); font-weight: 700;">Kort en effectief.</span></span>
-                </li>
-
-                <li>
-                  <span class="check" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M20 6 9 17l-5-5"></path>
-                    </svg>
-                  </span>
-                  <span><strong>Cold plunge / cold</strong><br><span style="color: var(--muted); font-weight: 700;">Simpel. Direct.</span></span>
-                </li>
-
-                <li>
-                  <span class="check" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M20 6 9 17l-5-5"></path>
-                    </svg>
-                  </span>
-                  <span><strong>Recovery lounge</strong><br><span style="color: var(--muted); font-weight: 700;">Stretch, breath, reset.</span></span>
-                </li>
-
-                <li>
-                  <span class="check" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M20 6 9 17l-5-5"></path>
-                    </svg>
-                  </span>
-                  <span><strong>Member discounts</strong><br><span style="color: var(--muted); font-weight: 700;">Kleding, tools, essentials.</span></span>
-                </li>
-
-                <li>
-                  <span class="check" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M20 6 9 17l-5-5"></path>
-                    </svg>
-                  </span>
-                  <span><strong>Optioneel thuispakket (Plus)</strong><br><span style="color: var(--muted); font-weight: 700;">Proteïne, electrolytes.</span></span>
-                </li>
-              </ul>
-
-              <p class="fineprint">
-                Geen medische claims. Geen coaching.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PRICING -->
-    <section class="section">
-      <div class="container reveal">
-        <div class="section-title">
-          <h2 id="abonnement">Abonnementen</h2>
-          <p>Helder. Maandelijks. Gewoon routine.</p>
-        </div>
-
-        <div class="pricing" role="list" aria-label="Abonnementen">
-          <article class="plan" role="listitem">
-            <div class="top">
-              <span class="badge"><span class="spark" aria-hidden="true"></span> Recovery Basic</span>
-              <h3>De basis die je volhoudt</h3>
-              <div class="price">
-                <strong>€29</strong>
-                <span>/ maand</span>
-              </div>
-              <p class="desc">Voor wie herstel structureel wil.</p>
-            </div>
-
-            <ul class="list">
-              <li>
-                <span class="check" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M20 6 9 17l-5-5"></path>
-                  </svg>
-                </span>
-                <span><strong>3× herstelmoment / maand</strong><br><span style="color: var(--muted); font-weight: 750;">Sauna, cold plunge, lounge.</span></span>
-              </li>
-              <li>
-                <span class="check" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M20 6 9 17l-5-5"></path>
-                  </svg>
-                </span>
-                <span><strong>Member discounts</strong><br><span style="color: var(--muted); font-weight: 750;">Curated essentials.</span></span>
-              </li>
-              <li>
-                <span class="check" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M20 6 9 17l-5-5"></path>
-                  </svg>
-                </span>
-                <span><strong>Geen credits</strong><br><span style="color: var(--muted); font-weight: 750;">Vaste routine.</span></span>
-              </li>
+        <div class="plans">
+          <article class="plan tilt">
+            <div class="name">Recovery Basic</div>
+            <div class="price"><strong>€29</strong><span>per maand</span></div>
+            <ul class="bullets">
+              <li>3× recovery / maand</li>
+              <li>Heat • Cold • Lounge</li>
+              <li>Member deals</li>
             </ul>
-
-            <div class="bottom">
-              <a class="btn btn-primary" href="#signup">Kies Basic</a>
-              <span class="fineprint">Maandelijks opzegbaar</span>
+            <div class="plan-cta">
+              <a class="btn primary magnetic" href="#join">Join Basic</a>
+              <a class="btn magnetic" href="#join">Vraag info</a>
             </div>
           </article>
 
-          <article class="plan featured" role="listitem">
-            <div class="top">
-              <span class="badge"><span class="spark" aria-hidden="true"></span> Recovery Plus</span>
-              <h3>Herstel + thuisbasis</h3>
-              <div class="price">
-                <strong>€39</strong>
-                <span>/ maand</span>
-              </div>
-              <p class="desc">Voor wie routine wil + thuis‑stack.</p>
-            </div>
-
-            <ul class="list">
-              <li>
-                <span class="check" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M20 6 9 17l-5-5"></path>
-                  </svg>
-                </span>
-                <span><strong>3× herstelmoment / maand</strong><br><span style="color: var(--muted); font-weight: 750;">Zelfde eenvoud.</span></span>
-              </li>
-              <li>
-                <span class="check" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M20 6 9 17l-5-5"></path>
-                  </svg>
-                </span>
-                <span><strong>Member discounts+</strong><br><span style="color: var(--muted); font-weight: 750;">Extra essentials.</span></span>
-              </li>
-              <li>
-                <span class="check" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M20 6 9 17l-5-5"></path>
-                  </svg>
-                </span>
-                <span><strong>Thuispakket</strong><br><span style="color: var(--muted); font-weight: 750;">Proteïne + electrolytes.</span></span>
-              </li>
+          <article class="plan featured tilt">
+            <div class="name">Recovery Plus</div>
+            <div class="price"><strong>€39</strong><span>per maand</span></div>
+            <ul class="bullets">
+              <li>3× recovery / maand</li>
+              <li>Member deals+</li>
+              <li>Optioneel thuispakket</li>
             </ul>
-
-            <div class="bottom">
-              <a class="btn btn-primary" href="#signup">Kies Plus</a>
-              <span class="fineprint">Maandelijks opzegbaar</span>
+            <div class="plan-cta">
+              <a class="btn primary magnetic" href="#join">Join Plus</a>
+              <a class="btn magnetic" href="#join">Vraag info</a>
             </div>
           </article>
         </div>
-
-        <p class="fineprint">
-          Prijzen zijn voorbeeldprijzen (zoals in je concept). Pas aan naar je echte marge/partnerdeals.
-        </p>
       </div>
     </section>
 
-    <!-- FAQ -->
-    <section class="section">
+    <section class="section" id="join">
       <div class="container reveal">
-        <div class="section-title">
-          <h2 id="faq">FAQ</h2>
-          <p>Kort. Duidelijk. Zonder ruis.</p>
-        </div>
-
-        <div class="grid" style="gap: 12px;">
-          <details>
-            <summary>
-              Is RecoveryPass wellness?
-              <span class="chev" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M6 9l6 6 6-6"></path>
-                </svg>
-              </span>
-            </summary>
-            <div class="faq-body">
-              Nee. RecoveryPass is herstel als onderdeel van je sportweek: warmte, koud en rust.
-            </div>
-          </details>
-
-          <details>
-            <summary>
-              Past dit naast mijn gym / classes?
-              <span class="chev" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M6 9l6 6 6-6"></path>
-                </svg>
-              </span>
-            </summary>
-            <div class="faq-body">
-              Ja. RecoveryPass is bewust “ná sport”.
-            </div>
-          </details>
-
-          <details>
-            <summary>
-              Hoe werkt boeken bij partners?
-              <span class="chev" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M6 9l6 6 6-6"></path>
-                </svg>
-              </span>
-            </summary>
-            <div class="faq-body">
-              Je boekt bij een klein aantal vaste partners. Simpel.
-            </div>
-          </details>
-
-          <details>
-            <summary>
-              Doen jullie medische claims of coaching?
-              <span class="chev" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M6 9l6 6 6-6"></path>
-                </svg>
-              </span>
-            </summary>
-            <div class="faq-body">
-              Nee. RecoveryPass faciliteert herstelmomenten en member benefits. Voor medische vragen: altijd je arts/specialist.
-            </div>
-          </details>
-        </div>
-
-        <div class="cta-band" id="signup" style="margin-top: 18px;">
+        <div class="join">
           <div>
-            <h3>Launch list: als eerste toegang</h3>
-            <p>Korte updates. Geen spam.</p>
+            <h2>Join the list</h2>
+            <p>Als eerste toegang tot de pilot. Geen spam. Alleen launch.</p>
           </div>
 
-          <div class="card" style="background: rgba(0,0,0,.18); border-color: rgba(255,255,255,.14);">
-            <div class="card-inner">
-              <!-- Static-friendly: mailto werkt zonder backend, maar vervang dit liefst door Typeform/Stripe -->
-              <form action="mailto:hello@yourdomain.com" method="post" enctype="text/plain">
-                <label for="email" style="display:block; font-weight: 900; margin-bottom: 8px;">E-mailadres</label>
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  placeholder="jij@voorbeeld.nl"
-                  required
-                  style="
-                    width: 100%;
-                    padding: 12px 12px;
-                    border-radius: 14px;
-                    border: 1px solid rgba(255,255,255,.18);
-                    background: rgba(255,255,255,.06);
-                    color: var(--text);
-                    outline: none;
-                    font-weight: 750;
-                  "
-                />
-                <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top: 12px;">
-                  <button class="btn btn-primary" type="submit">Zet me op de lijst</button>
-                  <a class="btn" href="mailto:hello@yourdomain.com">Of mail ons</a>
-                </div>
-                <div class="fineprint">Door te versturen ga je akkoord met eenmalige updates (geen spam).</div>
-              </form>
-            </div>
-          </div>
+          <form id="waitlist">
+            <input type="email" name="email" placeholder="jij@voorbeeld.nl" required />
+            <button class="btn primary magnetic" type="submit">Join</button>
+          </form>
         </div>
-
       </div>
     </section>
+
+    <footer>
+      <div class="container foot">
+        <div>© <span id="year"></span> <strong>RecoveryPass</strong></div>
+        <div style="opacity:.9;">Amsterdam • Heat • Cold • Lounge</div>
+      </div>
+    </footer>
   </main>
 
-  <footer>
-    <div class="container footer-grid">
-      <div>
-        <div class="brand" style="margin-bottom: 10px;">
-          <span class="mark" aria-hidden="true"></span>
-          <span>RecoveryPass</span>
-        </div>
-        <div style="max-width: 70ch;">
-          Herstel als systeem. Functioneel, planbaar, naast je bestaande sportgedrag.
-          <div class="fineprint" style="margin-top: 10px;">
-            © <span id="year"></span> RecoveryPass. Geen medische adviezen. Resultaten verschillen per persoon.
-          </div>
-        </div>
-      </div>
-
-      <div class="footer-links" aria-label="Footer links">
-        <a href="#top">Naar boven</a>
-        <a href="#abonnement">Abonnementen</a>
-        <a href="#faq">FAQ</a>
-        <a href="mailto:hello@yourdomain.com">hello@yourdomain.com</a>
-      </div>
-    </div>
-  </footer>
-
   <script>
-    // Mobiel menu
-    const topbar = document.getElementById('topbar');
-    const burger = document.getElementById('burger');
+    // Helpers
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+    // Mobile menu
+    const burger = document.getElementById('burger');
+    const mobile = document.getElementById('mobile');
     burger?.addEventListener('click', () => {
-      const isOpen = topbar.getAttribute('data-open') === 'true';
-      topbar.setAttribute('data-open', String(!isOpen));
+      const isOpen = mobile.style.display === 'block';
+      mobile.style.display = isOpen ? 'none' : 'block';
       burger.setAttribute('aria-expanded', String(!isOpen));
     });
-
-    // Demo video fallback
-    const demoVideo = document.querySelector('.demo-video');
-    const demoFallback = document.querySelector('.demo-fallback');
-    if (demoVideo && demoFallback) {
-      demoFallback.style.display = 'flex';
-      const hideFallback = () => { demoFallback.style.display = 'none'; };
-      const showFallback = () => { demoFallback.style.display = 'flex'; };
-      demoVideo.addEventListener('canplay', hideFallback, { once: true });
-      demoVideo.addEventListener('playing', hideFallback, { once: true });
-      demoVideo.addEventListener('error', showFallback);
-    }
-
-    // Close menu when clicking a link (mobile)
-    document.querySelectorAll('.mobile-panel a').forEach(a => {
-      a.addEventListener('click', () => {
-        topbar.setAttribute('data-open', 'false');
-        burger.setAttribute('aria-expanded', 'false');
-      });
-    });
-
-    // Reveal animation on scroll
-    const revealEls = document.querySelectorAll('.reveal');
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if(e.isIntersecting){
-          e.target.classList.add('is-visible');
-          io.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.12 });
-
-    revealEls.forEach(el => io.observe(el));
+    mobile?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      mobile.style.display = 'none';
+      burger?.setAttribute('aria-expanded', 'false');
+    }));
 
     // Year
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Reveal on scroll
+    const revealEls = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.14 });
+    revealEls.forEach(el => io.observe(el));
+
+    // Waitlist demo submit (geen backend nodig)
+    const form = document.getElementById('waitlist');
+    form?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const email = form.querySelector('input')?.value?.trim();
+      if(!email) return;
+
+      // Mini toast
+      let t = document.getElementById('toast');
+      if(!t){
+        t = document.createElement('div');
+        t.id = 'toast';
+        t.style.position = 'fixed';
+        t.style.left = '50%';
+        t.style.bottom = '22px';
+        t.style.transform = 'translateX(-50%)';
+        t.style.padding = '12px 14px';
+        t.style.borderRadius = '999px';
+        t.style.background = 'rgba(255,255,255,.18)';
+        t.style.border = '1px solid rgba(255,255,255,.40)';
+        t.style.color = 'rgba(255,255,255,.95)';
+        t.style.fontWeight = '900';
+        t.style.backdropFilter = 'blur(14px)';
+        t.style.boxShadow = '0 20px 60px rgba(0,0,0,.18)';
+        t.style.zIndex = '999';
+        document.body.appendChild(t);
+      }
+      t.textContent = 'Je staat op de lijst ✨';
+      form.reset();
+      t.style.opacity = '1';
+      clearTimeout(window.__toastTimer);
+      window.__toastTimer = setTimeout(() => { t.style.opacity = '0'; }, 2200);
+    });
+
+    if(!prefersReduced){
+      // Cursor glow follow
+      const glow = document.querySelector('.cursor-glow');
+      let tx = window.innerWidth * 0.5, ty = window.innerHeight * 0.25;
+      let x = tx, y = ty;
+
+      window.addEventListener('pointermove', (e) => {
+        tx = e.clientX; ty = e.clientY;
+      });
+
+      const loop = () => {
+        x += (tx - x) * 0.12;
+        y += (ty - y) * 0.12;
+        if(glow) glow.style.transform = `translate(${x}px, ${y}px) translate(-50%, -50%)`;
+        requestAnimationFrame(loop);
+      };
+      loop();
+
+      // Magnetic buttons
+      document.querySelectorAll('.magnetic').forEach(el => {
+        const strength = 10; // px
+        el.addEventListener('mousemove', (e) => {
+          const r = el.getBoundingClientRect();
+          const dx = (e.clientX - (r.left + r.width / 2)) / (r.width / 2);
+          const dy = (e.clientY - (r.top + r.height / 2)) / (r.height / 2);
+          el.style.setProperty('--mx', `${dx * strength}px`);
+          el.style.setProperty('--my', `${dy * strength}px`);
+        });
+        el.addEventListener('mouseleave', () => {
+          el.style.setProperty('--mx', `0px`);
+          el.style.setProperty('--my', `0px`);
+        });
+      });
+
+      // Tilt cards
+      document.querySelectorAll('.tilt').forEach(card => {
+        const max = 8; // deg
+        card.addEventListener('mousemove', (e) => {
+          const r = card.getBoundingClientRect();
+          const px = (e.clientX - r.left) / r.width;
+          const py = (e.clientY - r.top) / r.height;
+          const rx = (max / 2) - (py * max);
+          const ry = (px * max) - (max / 2);
+          card.style.transform = `perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-2px)`;
+        });
+        card.addEventListener('mouseleave', () => {
+          card.style.transform = `perspective(900px) rotateX(0deg) rotateY(0deg)`;
+        });
+      });
+    }
   </script>
 </body>
 </html>
