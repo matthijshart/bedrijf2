@@ -202,9 +202,7 @@
     /* Hero */
     .hero{
       position: relative;
-      min-height: calc(100vh - 64px);
-      display: grid;
-      place-items: center;
+      padding: 72px 0 86px;
       overflow: hidden;
       border-bottom: 1px solid rgba(255,255,255,.08);
     }
@@ -229,9 +227,12 @@
       pointer-events: none;
     }
 
-    .hero-content{
+    .hero__grid{
       position: relative;
-      padding: 72px 0 56px 0;
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 34px;
+      align-items: center;
     }
     .kicker{
       display: inline-flex;
@@ -253,59 +254,202 @@
       background: var(--accent);
       box-shadow: 0 0 0 8px rgba(255,184,77,.25);
     }
-    .hero h1{
+    .dot--red{ background: #ff5f57; box-shadow: none; }
+    .dot--yellow{ background: #febc2e; box-shadow: none; }
+    .dot--green{ background: #28c840; box-shadow: none; }
+    .hero__copy h1{
       margin: 16px 0 12px 0;
-      font-size: clamp(34px, 4.8vw, 64px);
+      font-size: clamp(34px, 4.8vw, 58px);
       line-height: 1.02;
       letter-spacing: -1px;
       font-weight: 900;
       text-shadow: 0 14px 40px rgba(120,20,40,.45);
     }
-    .hero p{
-      margin: 0;
-      max-width: 62ch;
-      color: rgba(255,255,255,.9);
-      font-size: 17px;
+    .hero__sub{
+      margin: 0 0 22px;
+      color: rgba(255,255,255,.88);
+      font-size: 16px;
+      max-width: 44ch;
     }
-
-    .hero-cta{
-      display: flex;
-      flex-wrap: wrap;
+    .hero__cta{
+      display:flex;
       gap: 12px;
-      margin-top: 22px;
-      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+    }
+    .hero__points{
+      display:flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .hero__points li{
+      padding: 8px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.16);
+      border: 1px solid rgba(255,255,255,0.28);
     }
 
-    .hero-metrics{
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
-      margin-top: 28px;
-      max-width: 820px;
-    }
-    .metric{
-      background: rgba(255,255,255,.18);
-      border: 1px solid rgba(255,255,255,.3);
+    .demo-shell{
       border-radius: var(--radius);
-      padding: 14px 14px;
-      box-shadow: 0 12px 30px rgba(120,20,40,.25);
-      transition: transform .2s ease, box-shadow .2s ease;
+      background: linear-gradient(180deg, rgba(255,255,255,0.2), rgba(255,255,255,0.08));
+      border: 1px solid rgba(255,255,255,0.24);
+      box-shadow: var(--shadow);
+      overflow: hidden;
     }
-    .metric:hover{
-      transform: translateY(-4px);
-      box-shadow: 0 18px 40px rgba(120,20,40,.35);
+    .demo-shell__topbar{
+      display:flex;
+      align-items:center;
+      gap: 8px;
+      padding: 12px 14px;
+      border-bottom: 1px solid rgba(255,255,255,0.16);
+      background: rgba(0,0,0,0.18);
     }
-    .metric strong{
-      display: block;
-      font-size: 15px;
-      letter-spacing: .2px;
-    }
-    .metric span{
-      display: block;
-      margin-top: 6px;
-      color: var(--muted);
+    .demo-shell__title{
+      margin-left: 8px;
       font-size: 13px;
+      color: rgba(255,255,255,0.75);
     }
+    .demo-shell__body{
+      position: relative;
+      padding: 14px;
+      background: rgba(0,0,0,0.12);
+    }
+    .demo-video{
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.2);
+      background: rgba(255,255,255,0.08);
+      display: block;
+      object-fit: cover;
+    }
+    .demo-fallback{
+      position: absolute;
+      inset: 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.08);
+      padding: 16px;
+      display:flex;
+      flex-direction:column;
+      gap: 14px;
+    }
+    .demo-step{
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 14px;
+      padding: 12px 12px;
+      opacity: 0;
+      transform: translateY(6px);
+    }
+    .demo-label{
+      font-size: 12px;
+      color: rgba(255,255,255,0.72);
+      margin-bottom: 10px;
+    }
+    .demo-row{
+      display:flex;
+      align-items:center;
+      gap: 10px;
+    }
+    .demo-icon{
+      width: 28px;
+      height: 28px;
+      border-radius: 10px;
+      background: rgba(255,255,255,0.16);
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+    .demo-text{
+      font-weight: 600;
+      font-size: 14px;
+      letter-spacing: -0.01em;
+    }
+    .demo-chip{
+      margin-left: auto;
+      font-size: 12px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.18);
+      border: 1px solid rgba(255,255,255,0.22);
+      color: rgba(255,255,255,0.88);
+    }
+    .demo-progress{
+      height: 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(0,0,0,0.15);
+      overflow: hidden;
+    }
+    .demo-progress__bar{
+      height: 100%;
+      width: 0%;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.4);
+    }
+    .demo-muted{
+      margin-top: 10px;
+      font-size: 12px;
+      color: rgba(255,255,255,0.68);
+    }
+    .demo-result{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 12px;
+    }
+    .demo-metric{
+      display:flex;
+      flex-direction:column;
+      gap: 2px;
+    }
+    .demo-metric__value{
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+    .demo-metric__label{
+      font-size: 12px;
+      color: rgba(255,255,255,0.66);
+    }
+    .demo-chips{
+      display:flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content:flex-end;
+    }
+
+    @keyframes stepIn {
+      0%, 12% { opacity: 0; transform: translateY(6px); }
+      18%, 34% { opacity: 1; transform: translateY(0); }
+      40% { opacity: 0; transform: translateY(-4px); }
+      100% { opacity: 0; transform: translateY(-4px); }
+    }
+    @keyframes stepIn2 {
+      0%, 34% { opacity: 0; transform: translateY(6px); }
+      40%, 62% { opacity: 1; transform: translateY(0); }
+      68% { opacity: 0; transform: translateY(-4px); }
+      100% { opacity: 0; transform: translateY(-4px); }
+    }
+    @keyframes stepIn3 {
+      0%, 62% { opacity: 0; transform: translateY(6px); }
+      68%, 96% { opacity: 1; transform: translateY(0); }
+      100% { opacity: 0; transform: translateY(0); }
+    }
+    @keyframes progressFill {
+      0%, 40% { width: 0%; }
+      60% { width: 100%; }
+      62% { width: 100%; }
+      100% { width: 0%; }
+    }
+    .demo-step--1{ animation: stepIn 10s infinite; }
+    .demo-step--2{ animation: stepIn2 10s infinite; }
+    .demo-step--3{ animation: stepIn3 10s infinite; }
+    .demo-step--2 .demo-progress__bar{ animation: progressFill 10s infinite; }
 
     /* Sections */
     .section{
@@ -682,7 +826,7 @@
       .pricing{ grid-template-columns: 1fr; }
       .gallery{ grid-template-columns: 1fr; }
       .cta-band{ grid-template-columns: 1fr; }
-      .hero-metrics{ grid-template-columns: 1fr; max-width: 560px; }
+      .hero__grid{ grid-template-columns: 1fr; }
       .section-title{ flex-direction: column; align-items: flex-start; }
       .nav{ display: none; }
       .burger{ display: inline-flex; }
@@ -695,6 +839,13 @@
       .reveal{ opacity: 1; transform: none; transition: none; }
       .btn{ transition: none; }
       details[open] .chev{ transform: none; }
+      .demo-step,
+      .demo-step--2 .demo-progress__bar{
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+        width: 100% !important;
+      }
     }
   </style>
 </head>
@@ -742,36 +893,78 @@
   <main id="content">
     <!-- HERO -->
     <section class="hero" id="top" aria-label="Hero">
-      <div class="container hero-content">
-        <div class="kicker">
-          <span class="dot" aria-hidden="true"></span>
-          RecoveryPass — herstel als systeem
+      <div class="container hero__grid">
+        <div class="hero__copy">
+          <div class="kicker">
+            <span class="dot" aria-hidden="true"></span>
+            RecoveryPass — herstel als systeem
+          </div>
+
+          <h1>Herstel gepland. Automatisch.</h1>
+          <p class="hero__sub">Plan → Herstel → Klaar voor je volgende training.</p>
+
+          <div class="hero__cta">
+            <a class="btn btn-primary" href="#demo">Bekijk demo</a>
+            <a class="btn btn-ghost" href="#signup">Plan een korte call</a>
+          </div>
+
+          <ul class="hero__points" aria-label="Kernpunten">
+            <li>Sneller herstel</li>
+            <li>Consistente routine</li>
+            <li>Minder gedoe</li>
+          </ul>
         </div>
 
-        <h1>Je sport al genoeg.<br>Herstel is jouw power move.</h1>
+        <div class="hero__visual" id="demo" aria-label="Geanimeerde demo van RecoveryPass">
+          <div class="demo-shell">
+            <div class="demo-shell__topbar">
+              <span class="dot dot--red" aria-hidden="true"></span>
+              <span class="dot dot--yellow" aria-hidden="true"></span>
+              <span class="dot dot--green" aria-hidden="true"></span>
+              <span class="demo-shell__title">RecoveryPass demo</span>
+            </div>
 
-        <p>
-          <strong>RecoveryPass maakt herstel routine.</strong>
-          3× per maand bij vaste partners. Geen credits. Geen gedoe.
-        </p>
+            <div class="demo-shell__body">
+              <video class="demo-video" autoplay muted loop playsinline preload="metadata" poster="demo-poster.webp">
+                <source src="demo.webm" type="video/webm" />
+                <source src="demo.mp4" type="video/mp4" />
+              </video>
 
-        <div class="hero-cta">
-          <a class="btn btn-primary" href="#signup">Word member</a>
-          <a class="btn" href="#hoe">Zo werkt het</a>
-        </div>
+              <div class="demo-fallback" aria-hidden="true">
+                <div class="demo-step demo-step--1">
+                  <div class="demo-label">1. Plan</div>
+                  <div class="demo-row">
+                    <span class="demo-icon" aria-hidden="true"></span>
+                    <span class="demo-text">Sauna + cold plunge</span>
+                    <span class="demo-chip">Geboekt</span>
+                  </div>
+                </div>
 
-        <div class="hero-metrics" role="list" aria-label="Highlights">
-          <div class="metric" role="listitem">
-            <strong>3× herstelmoment / maand</strong>
-            <span>Sauna, cold plunge, lounge. Klaar.</span>
-          </div>
-          <div class="metric" role="listitem">
-            <strong>Geen credits, geen upsells</strong>
-            <span>Helder. Snel. Planbaar.</span>
-          </div>
-          <div class="metric" role="listitem">
-            <strong>Member discounts</strong>
-            <span>Curated essentials.</span>
+                <div class="demo-step demo-step--2">
+                  <div class="demo-label">2. Herstel</div>
+                  <div class="demo-progress">
+                    <div class="demo-progress__bar"></div>
+                  </div>
+                  <div class="demo-muted">Check-in, sessie loopt, klaar om te gaan</div>
+                </div>
+
+                <div class="demo-step demo-step--3">
+                  <div class="demo-label">3. Resultaat</div>
+                  <div class="demo-result">
+                    <div class="demo-metric">
+                      <span class="demo-metric__value">48 uur</span>
+                      <span class="demo-metric__label">tot volgende training</span>
+                    </div>
+                    <div class="demo-chips">
+                      <span class="demo-chip">Samenvatting</span>
+                      <span class="demo-chip">Herstel</span>
+                      <span class="demo-chip">Acties</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- /fallback -->
+            </div>
           </div>
         </div>
       </div>
@@ -1176,6 +1369,18 @@
       topbar.setAttribute('data-open', String(!isOpen));
       burger.setAttribute('aria-expanded', String(!isOpen));
     });
+
+    // Demo video fallback
+    const demoVideo = document.querySelector('.demo-video');
+    const demoFallback = document.querySelector('.demo-fallback');
+    if (demoVideo && demoFallback) {
+      demoFallback.style.display = 'flex';
+      const hideFallback = () => { demoFallback.style.display = 'none'; };
+      const showFallback = () => { demoFallback.style.display = 'flex'; };
+      demoVideo.addEventListener('canplay', hideFallback, { once: true });
+      demoVideo.addEventListener('playing', hideFallback, { once: true });
+      demoVideo.addEventListener('error', showFallback);
+    }
 
     // Close menu when clicking a link (mobile)
     document.querySelectorAll('.mobile-panel a').forEach(a => {
